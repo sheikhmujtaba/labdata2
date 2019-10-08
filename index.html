@@ -1,0 +1,83 @@
+<html>
+<head>
+     <link rel="stylesheet" href="style.css">
+ <h1 class="title">
+ Lab Transformation 2
+    </h1>   
+    </head>
+<body>
+    <h2>
+    How did we Figure out B1?
+    </h2>
+        <pre>
+     var classdata= function(drb)
+    {
+        
+        var finalgrade= {};
+        finalgrade.final= drb.final*.35+drb.meanHW*.15+drb.meanquiz*.2+drb.meantest*.30;
+        finalgrade.pictur=drb.pict;
+        return finalgrade;
+    }
+    
+var answer= buy.map(classdata)
+    report("#B1",answer);
+    </pre>
+    <p>
+    In B1, we created a function to get us an array of objects with the final grade of a penguin along with its picture. We created an empty array and pushed the final grade into by object by using the means from the array that we created in A10, we added the weightage of each mean and added them together to get the final grade. Then we pushed the picture inside the object as well. Then we asked the function to return us the object. Lastly, we mapped the array in A10 by using our new function to give us the final grade and picture for each penguin 
+    </p>
+    <h2>
+    How did we Figure out C1?
+    </h2>
+    <pre>
+     var fry= function(penguin)
+    {
+      
+        return penguin.quizes[0].grade
+    }
+  var gg=classroom.map(fry);
+   
+report("#C1", d3.mean(gg))
+    </pre>
+    <p>
+  In C1, I created a function which takes a penguin and gives us the grade for the day 1 quiz. Then I mapped this data for everyone in the classroom by giving the map function the array classroom and using my function to transform this array to give the grade for each penguin. Lastly, we calculated the mean using the d3.mean function by providing it the array that we just created. 
+     </p>
+    <h2>
+    How did we Figure out D1?
+    </h2>
+    <pre>
+     var done = function(day)
+    {
+        var hit= function(penguin)
+        {
+            return penguin.quizes[day].grade;    
+        }
+        var hop = classroom.map(hit);
+        return d3.mean(hop)
+    }
+    
+var answer=done(0);
+    
+report("#D1",answer)    
+    </pre>
+    <p>
+   In D1, we created a function that takes a day as the parameter. Then within the function we added a helper function which gives us the grade of a quiz when we provide it with a day. Then we mapped this function for every penguin in the classroom and get an array of the grade for every penguin in the classroom. Lastly, we used the d3.mean function to get the mean of the array that was created by map using our helper function. 
+    </p>
+    <h2>
+    How did we Figure out D2?
+    </h2>
+    <pre>
+     var tip = d3.range(0,38);
+    tip.map(done);
+    
+var answer=tip.map(done);
+    
+report("#D2",answer);    
+    </pre>
+    <p>
+ In D2, we use the d3.range function from 0-38 to get the array of all the number from 0 to 38. Then I used this array created by D3.range to map the function that I created in D1 to give us the array of numbers which gives us the average for each quiz. 
+    </p>
+    
+   
+
+</body>
+</html>
